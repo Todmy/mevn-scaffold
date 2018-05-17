@@ -1,6 +1,10 @@
 {
   "server": {
     "port": 4444,
-    "apiEndpoint": "/api"
+    "apiEndpoint": "/api",
+    "jsonBodyLimit": "10mb"
+  },
+  "cors": {
+    "maxAge": 600
   }
 }
