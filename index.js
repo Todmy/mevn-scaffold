@@ -4,6 +4,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const routes = require('./routes')
 const { errorHandler, notAllowed } = require('./modules/errors')
+require('./mongoose')
 
 const app = express()
 
