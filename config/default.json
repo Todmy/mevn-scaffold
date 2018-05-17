@@ -1,5 +1,6 @@
 {
   "server": {
-    "port": 4444
+    "port": 4444,
+    "apiEndpoint": "/api"
   }
 }
