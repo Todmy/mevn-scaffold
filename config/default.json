@@ -6,5 +6,16 @@
   },
   "cors": {
     "maxAge": 600
+  },
+  "mongodb": {
+    "uri": "mongodb://localhost:27017/mevn",
+    "options": {
+      "auto_reconnect": true,
+      "reconnectTries": "10000",
+      "poolSize": 5,
+      "socketOptions": {
+        "keepAlive": 120
+      }
+    }
   }
 }
