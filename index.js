@@ -14,9 +14,10 @@ app.use(cors(corsConfig))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json({ limit: server.jsonBodyLimit }))
 app.use(errorHandler)
-app.all('*', notAllowed)
 
 app.use(server.apiEndpoint, routes)
+
+app.all('*', notAllowed)
 
 app.listen(server.port, () => {
   console.log(`App successfully started on port ${server.port}`)
