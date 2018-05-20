@@ -1,5 +1,7 @@
 <template>
-  <Auth/>
+  <div class="auth-form">
+    <Auth type="login"/>
+  </div>
 </template>
 
 <script>
@@ -11,3 +13,12 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  .auth-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20%;
+  }
+</style>
