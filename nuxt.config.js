@@ -1,7 +1,8 @@
 const resolve = require('path').resolve;
 
 module.exports = {
-  modulesDir: resolve(__dirname, '../node_modules/'),
+  // modulesDir: resolve(__dirname, '../node_modules/'),
+  srcDir: 'client/',
   /*
   ** Headers of the page
   */
