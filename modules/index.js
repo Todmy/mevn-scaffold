@@ -3,11 +3,11 @@ const {
 } = require('./auth')
 const { 
   route: tasksRoute,
-  Model: User,
+  Model: Task,
 } = require('./tasks')
 const { 
   route: usersRoute,
-  Model: Task,
+  Model: User,
 } = require('./users')
 
 module.exports = {
