@@ -25,9 +25,9 @@ app.use(require('express-session')(expressSessionConfig))
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(nuxt.render)
-
 app.use(server.apiEndpoint, routes)
+
+app.use(nuxt.render)
 
 app.use(errorHandler)
 app.all('*', notAllowed)
