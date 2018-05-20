@@ -1,4 +1,7 @@
+const resolve = require('path').resolve;
+
 module.exports = {
+  modulesDir: resolve(__dirname, '../node_modules/'),
   /*
   ** Headers of the page
   */
