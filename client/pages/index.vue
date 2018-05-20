@@ -2,7 +2,7 @@
   <section class="container">
     <div>
       <h1 class="title">
-        Simple Nuxt.js project
+        Simple MEVN project
       </h1>
       <app-logo/>
       <div class="links">
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import AppLogo from '~/components/AppLogo'
 
 export default {
   components: {
