@@ -13,9 +13,12 @@
       "auto_reconnect": true,
       "reconnectTries": "10000",
       "poolSize": 5,
-      "socketOptions": {
-        "keepAlive": 120
-      }
+      "keepAlive": 120
     }
+  },
+  "expressSession": {
+    "secret": "as@23w45_/*@fdreFy*H", 
+    "resave": true, 
+    "saveUninitialized": false
   }
 }
