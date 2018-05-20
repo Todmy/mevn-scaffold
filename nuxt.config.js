@@ -1,8 +1,14 @@
 const resolve = require('path').resolve;
 
 module.exports = {
-  // modulesDir: resolve(__dirname, '../node_modules/'),
   srcDir: 'client/',
+  modules: [
+    '@nuxtjs/axios',
+  ],
+  axios: {
+    baseURL: 'http://localhost:4444/api',
+    ssr: false,
+  },
   /*
   ** Headers of the page
   */
