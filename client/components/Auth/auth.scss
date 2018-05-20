@@ -8,13 +8,20 @@
   padding: 20px;
   width: 25%;
 
-  input {
+  input, .submit-btn {
     margin: 10px;
-    padding-left: 20px;
     box-sizing: border-box;
     padding: 5px;
-    border: 1px gray solid;
     border-radius: 5px;
     width: 100%;
+  }
+
+  input {
+    border: 1px gray solid;
+  }
+
+  .submit-btn {
+    color: #fff;
+    background-color: green;
   }
 }

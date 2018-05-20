@@ -1,6 +1,9 @@
 <template>
   <div class="auth-form">
-    <Auth type="login"/>
+    <Auth 
+      type="login"
+      @submit="onSubmit"
+    />
   </div>
 </template>
 
@@ -10,6 +13,10 @@
   export default {
     components: {
       Auth
+    },
+    methods: {
+      onSubmit() {
+      }
     }
   }
 </script>

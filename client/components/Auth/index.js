@@ -9,7 +9,7 @@ const SUPPORTED_COMPONENTS = {
 export default {
   name: 'Auth',
   functional: true,
-  render(h, { props }) {
+  render(h, { props, data }) {
     if (!props.type) {
       return null
     }
@@ -20,6 +20,6 @@ export default {
       return null
     }
 
-    return h(Component, { props })
+    return h(Component, { on: data.on })
   }
 }

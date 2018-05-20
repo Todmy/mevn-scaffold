@@ -1,8 +1,30 @@
 <template>
-  <form class="form">
-    <input type="text" placeholder="Username">
-    <input type="password" placeholder="Password">
-    <input type="number" placeholder="Age">
+  <form 
+    class="form"
+    @submit.prevent="onSubmit"
+  >
+    <input 
+      v-model="user.username"
+      type="text" 
+      placeholder="Username"
+    >
+    <input 
+      v-model="user.password"
+      type="password" 
+      placeholder="Password"
+    >
+    <input 
+      v-model="user.age"
+      type="number" 
+      placeholder="Age"
+    >
+
+    <button 
+      type="submit"
+      class="submit-btn"  
+    >
+      Submit
+    </button>
   </form>
 </template>
 
