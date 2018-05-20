@@ -29,8 +29,11 @@
 </template>
 
 <script>
+import submit from './submit'
+
 export default {
-  name: 'Signin'
+  name: 'Signin',
+  mixins: [ submit ]
 }
 </script>
 
