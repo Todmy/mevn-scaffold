@@ -7,21 +7,28 @@
     <p>There is no tasks</p>
     </div>
 
-    <ul 
+    <div 
       v-else
       class="list-filled"
     >
-      <li 
+      <TaskListItem 
         v-for="(task, index) in tasks"
         :key="index"
-      >{{ task }}</li>
-    </ul>
+        :item="task"
+        @remove="$emit('remove', $event)"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import TaskListItem from './Item'
+
 export default {
   name: 'TaskList',
+  components: {
+    TaskListItem,
+  },
   props: {
     tasks: {
       type: Array,

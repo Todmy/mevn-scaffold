@@ -16,7 +16,7 @@
     </div>
 
     <hr class="divider" />
-    
+
     <TaskList
       class="list"
       :tasks="entities"
@@ -44,6 +44,7 @@
     methods: {
       ...mapActions('tasks', [
         'remove',
+        'init',
       ]),
     },
     // TODO: think about do it in middlewares
@@ -51,6 +52,9 @@
       if (!this.isAuthenticated) {
         this.$router.replace({ path: '/auth' })
       }
+    },
+    created() {
+      this.init()
     }
   }
 </script>

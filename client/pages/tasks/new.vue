@@ -9,7 +9,7 @@
     <hr class="divider" />
     <TaskForm
       :task="task"
-      @add="create"
+      @add="createAndRedirect"
     />
   </div>
 </template>
@@ -34,6 +34,10 @@
       ...mapActions('tasks', [
         'create',
       ]),
+      createAndRedirect(data) {
+        this.create(data)
+        this.$router.replace({ path: '/tasks' })
+      },
     },
     // TODO: think about do it in middlewares
     mounted() {
