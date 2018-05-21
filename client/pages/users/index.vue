@@ -28,13 +28,14 @@
 </template>
 
 <script>
-  import { mapActions, mapState, mapGetters } from 'vuex'
+  import { mapActions, mapState } from 'vuex'
   import List from '~/components/List'
 
   export default {
     components: {
       List
     },
+    middleware: 'auth',
     data: () => ({
       listFor: 'user'
     }),
@@ -45,20 +46,11 @@
       ...mapState('auth', [
         'session',
       ]),
-      ...mapGetters('auth', [
-        'isAuthenticated',
-      ])
     },
     methods: {
       ...mapActions('users', [
         'init',
       ]),
-    },
-    // TODO: think about do it in middlewares
-    mounted() {
-      if (!this.isAuthenticated) {
-        this.$router.replace({ path: '/auth' })
-      }
     },
     created() {
       this.init()

@@ -15,21 +15,17 @@
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
+  import { mapActions } from 'vuex'
   import TaskForm from '~/components/TaskForm'
 
   export default {
     components: {
       TaskForm
     },
+    middleware: 'auth',
     data: () => ({
       task: {}
     }),
-    computed: {
-      ...mapGetters('auth', [
-        'isAuthenticated'
-      ]),
-    },
     methods: {
       ...mapActions('tasks', [
         'create',
@@ -39,12 +35,6 @@
         this.$router.replace({ path: '/tasks' })
       },
     },
-    // TODO: think about do it in middlewares
-    mounted() {
-      if (!this.isAuthenticated) {
-        this.$router.replace({ path: '/auth' })
-      }
-    }
   }
 </script>
 
