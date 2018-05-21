@@ -21,6 +21,12 @@ html {
   margin: 0;
 }
 
+hr.divider {
+  height: 12px;
+  border: 0;
+  box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
 .button--green {
   display: inline-block;
   border-radius: 4px;

@@ -15,6 +15,8 @@
       </a>
     </div>
 
+    <hr class="divider" />
+    
     <TaskList
       class="list"
       :tasks="entities"

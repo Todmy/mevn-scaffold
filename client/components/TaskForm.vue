@@ -1,14 +1,16 @@
 <template>
   <form 
-    class="form" 
+    class="task-form" 
     @submit.prevent="onSubmit"
   >
     <input
+      class="task-form-input"
       v-model="task.name"
       type="text" 
       placeholder="Title"
     >
     <textarea 
+      class="task-form-input"
       v-model="task.discription"
       type="text" 
       placeholder="Description"
@@ -16,9 +18,9 @@
 
     <button 
       type="submit"
-      class="submit-btn"  
+      class="submit-btn button--green"  
     >
-      Submit
+      Add
     </button>
   </form>
 </template>
@@ -41,4 +43,28 @@ export default {
 
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.task-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &-input {
+    width: 80%;
+    padding: 15px;
+    margin: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #cccccc; 
+    outline:0; 
+    font-size: 1.2em;
+  }
+
+  .submit-btn {
+    background-color: #fff;
+    margin: 10px;
+  }
+}
+</style>

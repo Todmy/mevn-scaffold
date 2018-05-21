@@ -1,11 +1,12 @@
 <template>
-  <div class="list">
+  <div class="container">
     <a
       href="/tasks"
       class="link button--grey"
     >
       Cancel
     </a>
+    <hr class="divider" />
     <TaskForm
       :task="task"
       @add="create"
@@ -44,19 +45,9 @@
 </script>
 
 <style lang="scss" scoped>
-  .list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20%;
-    flex-direction: column;
-
-    .actions {
-      display: flex;
-      flex-direction: row;
-      > * {
-        margin: 10px;
-      }
+  .container {
+    .link {
+      margin: 10px;
     }
   }
 </style>
