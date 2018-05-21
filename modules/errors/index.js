@@ -13,7 +13,7 @@ function toJSON(err, options = {}) {
 }
 
 function errorHandler(error, req, res, next) {
-  req.app.error(error)
+  console.error(error)
 
   res.status(error instanceof HttpError ? error.statusCode : 500)
     .send(toJSON(error, { withStack: req.app.get('env') === 'development' }))
