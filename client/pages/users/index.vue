@@ -7,12 +7,14 @@
       >
         HOME
       </a>
-      <a
-        class="button--green"
-        href="/tasks/new"
-      >
-        Add New
-      </a>
+      <div class="info">
+        <div>
+          <b>Username: </b> {{ session.username }}
+        </div>
+        <div>
+          <b>Age: </b> {{ session.age }}
+        </div>
+      </div>
     </div>
 
     <hr class="divider" />
@@ -21,7 +23,6 @@
       class="list"
       :type="listFor"
       :items="entities"
-      @remove="remove"
     />
   </div>
 </template>
@@ -35,19 +36,21 @@
       List
     },
     data: () => ({
-      listFor: 'task'
+      listFor: 'user'
     }),
     computed: {
-      ...mapState('tasks', [
+      ...mapState('users', [
         'entities',
+      ]),
+      ...mapState('auth', [
+        'session',
       ]),
       ...mapGetters('auth', [
         'isAuthenticated',
       ])
     },
     methods: {
-      ...mapActions('tasks', [
-        'remove',
+      ...mapActions('users', [
         'init',
       ]),
     },
@@ -70,7 +73,7 @@
       justify-content: space-between;
       align-items: center;
 
-      a {
+      a, .info {
         margin: 10px;
       }
     }
