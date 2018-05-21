@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
   import Auth from '~/components/Auth'
 
   export default {
@@ -29,6 +29,11 @@
     data: () => ({
       type: 'login'
     }),
+    computed: {
+      ...mapGetters('auth', [
+        'isAuthenticated',
+      ]),
+    },
     methods: {
       ...mapActions('auth', [
         'login',
@@ -36,6 +41,11 @@
       ]),
       onSubmit(credentials) {
         this[this.type](credentials)
+      }
+    },
+    mounted() {
+      if (this.isAuthenticated) {
+        this.$router.replace({ path: '/' })
       }
     }
   }
