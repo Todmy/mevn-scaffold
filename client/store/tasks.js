@@ -11,7 +11,6 @@ export default {
 
     },
     create({ state, commit, dispatch }, data) {
-      console.log(data)
       return this.$axios.$post('/tasks', data)
         .then(resp => commit('addEntities', resp))
     },
