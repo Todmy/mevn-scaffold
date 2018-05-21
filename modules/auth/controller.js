@@ -12,7 +12,7 @@ module.exports = {
       return next(new InternalServerError(err))
     }
 
-    res.send(user)
+    next()
   },
 
   logIn(req, res, next) {

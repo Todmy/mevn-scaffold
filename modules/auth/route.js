@@ -10,6 +10,6 @@ router.route('/auth/login')
   .post(logIn)
 
 router.route('/auth/signin')
-  .post(signIn)
+  .post(signIn, logIn)
 
 module.exports = router
