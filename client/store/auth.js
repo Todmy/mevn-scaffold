@@ -6,18 +6,23 @@ export default {
   }),
 
   actions: {
-    login({ dispatch, commit }, data) {
+    login({ commit }, data) {
       return this.$axios.$post('/auth/login', data)
         .then(resp => commit('updateSession', resp))
-        .then(() => this.$router.replace({ path: '' }))
+        .then(() => this.$router.replace({ path: '/' }))
     },
-    signin({ dispatch, commit }, data) {
+    signin({ commit }, data) {
       return this.$axios.$post('/auth/signin', data)
         .then(resp => commit('updateSession', resp))
-        .then(() => this.$router.replace({ path: '' }))
+        .then(() => this.$router.replace({ path: '/' }))
     },
-    init({ commit }, { req }) {
-      commit('updateSession', req.data)
+    logout({ commit }) {
+      return this.$axios.$post('/auth/logout')
+        .then(resp => commit('updateSession', {}))
+        .then(() => this.$router.replace({ path: '/auth' }))
+    },
+    init({ commit }, req) {
+      commit('updateSession', req.user || {})
     }
   },
 

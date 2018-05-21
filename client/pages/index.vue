@@ -6,29 +6,57 @@
       </h1>
       <app-logo/>
       <div class="links">
-        <a
-          href="/tasks"
-          class="link button--green"
-        >
-          Tasks
-        </a>
-        <a
-          href="/users"
-          class="link button--green"
-        >
-          Users
-        </a>
+        <template v-if="session && session._id">
+          <a
+            href="/tasks"
+            class="link button--green"
+          >
+            Tasks
+          </a>
+          <a
+            href="/users"
+            class="link button--green"
+          >
+            Users
+          </a>
+          <button
+            class="link button--grey"
+            @click="logout"
+          >
+            Logout
+          </button>
+        </template>
+        <template v-else>
+          <a
+            href="/auth"
+            class="link button--green"
+          >
+            Login
+          </a>
+        </template>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+// TODO: figure out why getters don't work as expected
+import { mapState, mapActions } from 'vuex'
 import AppLogo from '~/components/AppLogo'
 
 export default {
   components: {
     AppLogo
+  },
+  computed: {
+    ...mapState('auth', [
+      'session',
+    ])
+  },
+  methods: {
+    ...mapActions('auth', [
+      'logout',
+    ])
   }
 }
 </script>
