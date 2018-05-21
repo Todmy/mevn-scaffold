@@ -1,20 +1,21 @@
 <template>
   <div class="list">
     <div
-      v-if="!tasks.length"
+      v-if="!items.length"
       class="list-empty"
     >
-    <p>There is no tasks</p>
+    <p>There is no {{this.type}}s</p>
     </div>
 
     <div 
       v-else
       class="list-filled"
     >
-      <TaskListItem 
-        v-for="(task, index) in tasks"
+      <component
+        :is="itemComponent" 
+        v-for="(item, index) in items"
         :key="index"
-        :item="task"
+        :item="item"
         @remove="$emit('remove', $event)"
       />
     </div>
@@ -22,17 +23,26 @@
 </template>
 
 <script>
-import TaskListItem from './Item'
+import TaskListItem from './TaskItem'
+import UserListItem from './UserItem'
 
 export default {
-  name: 'TaskList',
+  name: 'List',
   components: {
     TaskListItem,
+    UserListItem,
   },
   props: {
-    tasks: {
+    items: {
       type: Array,
       default: () => []
+    },
+    type: String
+  },
+  computed: {
+    itemComponent() {
+      const capitalized = this.type[0].toUpperCase() + this.type.slice(1).toLowerCase()
+      return `${capitalized}ListItem`
     }
   }
 }
