@@ -6,16 +6,19 @@ export default {
   }),
 
   actions: {
-    login({ state, dispatch, commit }, data) {
+    login({ dispatch, commit }, data) {
       return this.$axios.$post('/auth/login', data)
         .then(resp => commit('updateSession', resp))
         .then(() => this.$router.replace({ path: '' }))
     },
-    signin({ state, dispatch }, data) {
+    signin({ dispatch, commit }, data) {
       return this.$axios.$post('/auth/signin', data)
         .then(resp => commit('updateSession', resp))
         .then(() => this.$router.replace({ path: '' }))
     },
+    init({ commit }, { req }) {
+      commit('updateSession', req.data)
+    }
   },
 
   mutations: {
