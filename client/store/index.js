@@ -1,8 +1,10 @@
 import auth from './auth'
+import tasks from './tasks'
 
 export default {
   modules: {
-    auth
+    auth,
+    tasks,
   },
 
   actions: {
