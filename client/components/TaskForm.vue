@@ -11,7 +11,7 @@
     >
     <textarea 
       class="task-form-input"
-      v-model="task.discription"
+      v-model="task.description"
       type="text" 
       placeholder="Description"
     ></textarea>
@@ -60,6 +60,7 @@ export default {
   .submit-btn {
     background-color: #fff;
     margin: 10px;
+    color: #000;
   }
 }
 </style>
