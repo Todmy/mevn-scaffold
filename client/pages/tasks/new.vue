@@ -14,15 +14,26 @@
 </template>
 
 <script>
-  import { mapActions, mapState } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
+  import TaskForm from '~/components/TaskForm'
 
   export default {
     components: {
-      TaskList
+      TaskForm
     },
     data: () => ({
       task: {}
     }),
+    computed: {
+      ...mapGetters('auth', [
+        'isAuthenticated'
+      ]),
+    },
+    methods: {
+      ...mapActions('tasks', [
+        'create',
+      ]),
+    },
     // TODO: think about do it in middlewares
     mounted() {
       if (!this.isAuthenticated) {

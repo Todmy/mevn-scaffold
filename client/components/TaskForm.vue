@@ -41,4 +41,4 @@ export default {
 
 </script>
 
-<style lang="scss" src="./auth.scss"></style>
+<style lang="scss" scoped></style>
