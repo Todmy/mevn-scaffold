@@ -1,6 +1,12 @@
 <template>
-  <div class="list">
+  <div class="container">
     <div class="actions">
+      <a
+        class="button--grey"
+        href="/"
+      >
+        HOME
+      </a>
       <a
         class="button--green"
         href="/tasks/new"
@@ -10,6 +16,7 @@
     </div>
 
     <TaskList
+      class="list"
       :tasks="entities"
       @remove="remove"
     />
@@ -47,17 +54,13 @@
 </script>
 
 <style lang="scss" scoped>
-  .list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20%;
-    flex-direction: column;
-
+  .container {
     .actions {
       display: flex;
-      flex-direction: row;
-      > * {
+      justify-content: space-between;
+      align-items: center;
+
+      a {
         margin: 10px;
       }
     }

@@ -34,8 +34,12 @@ export default {
 
 <style lang="scss" scoped>
   .list {
+    padding: 20px;
     &-empty {
-      font-size: 0.8em;
+      font-size: 1.5em;
+      text-transform: uppercase;
+      color: lightslategray;
+      text-align: center;
     }
     &-filled {
       font-size: 0.8em;
