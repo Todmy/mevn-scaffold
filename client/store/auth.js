@@ -5,6 +5,12 @@ export default {
     session: {}
   }),
 
+  getters: {
+    isAuthenticated({ session }) {
+      return session && session._id
+    }
+  },
+
   actions: {
     login({ commit }, data) {
       return this.$axios.$post('/auth/login', data)

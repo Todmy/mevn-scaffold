@@ -6,7 +6,7 @@
       </h1>
       <app-logo/>
       <div class="links">
-        <template v-if="session && session._id">
+        <template v-if="isAuthenticated">
           <a
             href="/tasks"
             class="link button--green"
@@ -40,8 +40,7 @@
 </template>
 
 <script>
-// TODO: figure out why getters don't work as expected
-import { mapState, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import AppLogo from '~/components/AppLogo'
 
 export default {
@@ -49,8 +48,8 @@ export default {
     AppLogo
   },
   computed: {
-    ...mapState('auth', [
-      'session',
+    ...mapGetters('auth', [
+      'isAuthenticated',
     ])
   },
   methods: {
