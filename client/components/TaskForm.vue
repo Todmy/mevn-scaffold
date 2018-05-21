@@ -1,7 +1,7 @@
 <template>
   <form 
     class="task-form" 
-    @submit.prevent="onSubmit"
+    @submit.prevent="$emit('add', task)"
   >
     <input
       class="task-form-input"
@@ -33,11 +33,6 @@ export default {
       type: Object,
       default: () => ({}),
     },
-  },
-  actions: {
-    onSubmit(ev) {
-      this.$emit('add', this.task)
-    }
   },
 }
 
